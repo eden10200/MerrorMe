@@ -101,15 +101,6 @@ python app.py
 4. ブランチにプッシュ (`git push origin feature/amazing-feature`)
 5. プルリクエストを作成
 
-## 📄 ライセンス
-
-このプロジェクトはMITライセンスの下で公開されています。詳細は[LICENSE](LICENSE)ファイルをご覧ください。
-
-## 👤 作者
-
-- 学籍番号: XXXXXXXX
-- 氏名: XXXX
-- 所属: ○○大学
 
 ## 🙏 謝辞
 
