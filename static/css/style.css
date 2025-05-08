@@ -1,0 +1,376 @@
+/* 基本スタイル */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* ヘッダー */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: #3498db;
+}
+
+/* メインコンテンツ */
+.hero {
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* フォーム */
+.generate-form {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 3rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+textarea, input[type="text"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* ボタン */
+.btn-primary, .btn-secondary, .btn-save, .btn-delete, .btn-edit {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.btn-secondary {
+    background-color: #95a5a6;
+    color: #fff;
+}
+
+.btn-save {
+    background-color: #2ecc71;
+    color: #fff;
+}
+
+.btn-delete {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.btn-edit {
+    background-color: #f39c12;
+    color: #fff;
+}
+
+/* ボタンホバーエフェクト */
+.btn-primary:hover {
+    background-color: #2980b9;
+}
+
+.btn-secondary:hover {
+    background-color: #7f8c8d;
+}
+
+.btn-save:hover {
+    background-color: #27ae60;
+}
+
+.btn-delete:hover {
+    background-color: #c0392b;
+}
+
+.btn-edit:hover {
+    background-color: #d35400;
+}
+
+/* 認証フォーム */
+.auth-form {
+    max-width: 400px;
+    margin: 2rem auto;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.auth-form h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #2c3e50;
+}
+
+.auth-form input[type="text"],
+.auth-form input[type="password"] {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.auth-form button {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.auth-links {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.auth-links a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.auth-links a:hover {
+    text-decoration: underline;
+}
+
+/* 結果表示 */
+.pr-list {
+    display: grid;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.pr-card {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.pr-content {
+    margin-bottom: 1.5rem;
+    white-space: pre-line;
+}
+
+.traits-summary {
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+/* 保存されたPR一覧 */
+.pr-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.saved-pr-card {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.pr-metadata {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0.5rem 0;
+}
+
+.card-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.edit-form {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ddd;
+}
+
+/* フラッシュメッセージ */
+.flash-messages {
+    max-width: 1200px;
+    margin: 1rem auto;
+    padding: 0 2rem;
+}
+
+.flash-message {
+    padding: 1rem;
+    background-color: #2ecc71;
+    color: #fff;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+/* フッター */
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+    margin-top: 4rem;
+}
+
+/* 特徴セクション */
+.features {
+    margin: 4rem 0;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.feature-card {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.feature-card h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.feature-card p {
+    color: #666;
+}
+
+/* CTA セクション */
+.cta {
+    text-align: center;
+    background-color: #fff;
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 2rem 0;
+}
+
+.cta h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.cta p {
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* クイックアクション */
+.quick-actions {
+    margin: 2rem 0;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .hero {
+        padding: 2rem 0;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .nav-links {
+        gap: 1rem;
+    }
+
+    .pr-grid {
+        grid-template-columns: 1fr;
+    }
+}

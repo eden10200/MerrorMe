@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <section class="hero">
+        <h1>Mirror Me</h1>
+        <p>あなたの性格から最適な自己PRを生成します</p>
+    </section>
+
+    {% if current_user.is_authenticated %}
+    <section class="generate-form">
+        <h2>自己PR生成</h2>
+        <form action="{{ url_for('generate') }}" method="POST">
+            <div class="form-group">
+                <label for="traits">あなたの性格や特徴を入力してください：</label>
+                <textarea id="traits" name="traits" required placeholder="例：責任感が強く、チームワークを大切にします。新しいことに挑戦することが好きで、目標に向かって粘り強く取り組むことができます。"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="industry">希望する業界（任意）：</label>
+                <input type="text" id="industry" name="industry" placeholder="例：IT、製造、金融など">
+            </div>
+            <button type="submit" class="btn-primary">PRを生成</button>
+        </form>
+    </section>
+
+    <section class="quick-actions">
+        <h2>クイックアクション</h2>
+        <div class="action-buttons">
+            <a href="{{ url_for('my_prs') }}" class="btn-secondary">保存したPRを確認</a>
+        </div>
+    </section>
+    {% else %}
+    <section class="cta">
+        <h2>自己PRの作成を始めましょう</h2>
+        <p>Mirror Meを使用するには、アカウントが必要です。</p>
+        <div class="cta-buttons">
+            <a href="{{ url_for('register') }}" class="btn-primary">新規登録</a>
+            <a href="{{ url_for('login') }}" class="btn-secondary">ログイン</a>
+        </div>
+    </section>
+    {% endif %}
+
+    <section class="features">
+        <h2>Mirror Meの特徴</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>AI駆動の自己PR生成</h3>
+                <p>あなたの性格特性から、最適な自己PRを複数生成します</p>
+            </div>
+            <div class="feature-card">
+                <h3>簡単な管理</h3>
+                <p>生成したPRを保存し、編集・管理できます</p>
+            </div>
+            <div class="feature-card">
+                <h3>業界別対応</h3>
+                <p>希望する業界に合わせたPRを生成できます</p>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

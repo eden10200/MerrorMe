@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <section class="results">
+        <h2>生成された自己PR</h2>
+        <p class="traits-summary">入力された性格特性：{{ traits }}</p>
+
+        <div class="pr-list">
+            {% for pr in prs %}
+            <div class="pr-card">
+                <div class="pr-content">
+                    {{ pr }}
+                </div>
+                <form action="{{ url_for('save_pr') }}" method="POST">
+                    <input type="hidden" name="content" value="{{ pr }}">
+                    <input type="hidden" name="traits" value="{{ traits }}">
+                    <div class="form-group">
+                        <input type="text" name="title" required placeholder="このPRのタイトルを入力">
+                    </div>
+                    <button type="submit" class="btn-save">保存</button>
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="actions">
+            <a href="{{ url_for('index') }}" class="btn-secondary">新しく生成する</a>
+            <a href="{{ url_for('my_prs') }}" class="btn-primary">保存したPRを確認</a>
+        </div>
+    </section>
+</div>
+{% endblock %}

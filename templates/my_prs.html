@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <section class="my-prs">
+        <h2>保存したPR一覧</h2>
+
+        {% if prs %}
+        <div class="pr-grid">
+            {% for pr in prs %}
+            <div class="saved-pr-card">
+                <h3>{{ pr.title }}</h3>
+                <div class="pr-metadata">
+                    <span class="date">作成日: {{ pr.created_at.strftime('%Y年%m月%d日') }}</span>
+                    <span class="traits">性格特性: {{ pr.traits }}</span>
+                </div>
+                <div class="pr-content">
+                    {{ pr.content }}
+                </div>
+                <div class="card-actions">
+                    <button class="btn-edit" onclick="toggleEdit({{ pr.id }})">編集</button>
+                    <form action="{{ url_for('delete_pr', pr_id=pr.id) }}" method="POST" class="delete-form">
+                        <button type="submit" class="btn-delete" onclick="return confirm('このPRを削除してもよろしいですか？')">削除</button>
+                    </form>
+                </div>
+
+                <div class="edit-form" id="edit-form-{{ pr.id }}" style="display: none;">
+                    <form action="{{ url_for('edit_pr', pr_id=pr.id) }}" method="POST">
+                        <div class="form-group">
+                            <label for="title-{{ pr.id }}">タイトル:</label>
+                            <input type="text" id="title-{{ pr.id }}" name="title" value="{{ pr.title }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="content-{{ pr.id }}">内容:</label>
+                            <textarea id="content-{{ pr.id }}" name="content" required>{{ pr.content }}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="traits-{{ pr.id }}">性格特性:</label>
+                            <input type="text" id="traits-{{ pr.id }}" name="traits" value="{{ pr.traits }}" required>
+                        </div>
+                        <div class="edit-actions">
+                            <button type="submit" class="btn-save">保存</button>
+                            <button type="button" class="btn-cancel" onclick="toggleEdit({{ pr.id }})">キャンセル</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="no-prs">
+            <p>保存されたPRはありません。</p>
+            <a href="{{ url_for('index') }}" class="btn-primary">PRを生成する</a>
+        </div>
+        {% endif %}
+    </section>
+</div>
+
+<script>
+function toggleEdit(prId) {
+    const editForm = document.getElementById(`edit-form-${prId}`);
+    editForm.style.display = editForm.style.display === 'none' ? 'block' : 'none';
+}
+</script>
+{% endblock %}
